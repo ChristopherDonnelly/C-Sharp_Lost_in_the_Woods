@@ -1,0 +1,49 @@
+﻿@model Lost_in_the_Woods.Models.TrailInfo
+
+@{
+    ViewData["Title"] = "Add New Trail";
+}
+
+<div class="row mt-5">
+    <form asp-controller="Home" asp-action="CreateTrail" method="post" class="form-control">
+        <div class="col-12">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="col-12 d-inline-block my-2">
+            <label asp-for="Name" class="d-inline-block col-3 p-0 align-top"></label>
+            <input asp-for="Name" class="form-control d-inline-block col-8 m-auto" placeholder="Enter Trail Name" aria-label="Enter Trail Name" />
+            <span asp-validation-for="Name" class="d-block pl-3 offset-3 text-danger"></span>
+        </div>
+        <div class="col-12 d-inline-block my-2">
+            <label asp-for="Description" class="d-inline-block col-3 p-0 align-top"></label>
+            <textarea asp-for="Description" class="form-control d-inline-block col-8 m-auto" placeholder="Enter Description" aria-label="Enter Description"></textarea>
+            <span asp-validation-for="Description" class="d-block pl-3 offset-3 text-danger"></span>
+        </div>
+        <div class="col-12 d-inline-block my-2">
+            <label asp-for="Length" class="d-inline-block col-3 p-0 align-top"></label>
+            <input asp-for="Length" class="form-control d-inline-block col-8 m-auto" placeholder="Enter Trail Length" aria-label="Enter Trail Length" />
+            <span asp-validation-for="Length" class="d-block pl-3 offset-3 text-danger"></span>
+        </div>
+        <div class="col-12 d-inline-block my-2">
+            <label asp-for="Gain" class="d-inline-block col-3 p-0 align-top"></label>
+            <input asp-for="Gain" class="form-control d-inline-block col-8 m-auto" placeholder="Enter Elevation Change" aria-label="Enter Elevation Change" />
+            <span asp-validation-for="Gain" class="d-block pl-3 offset-3 text-danger"></span>
+        </div>
+        <div class="col-12 d-inline-block my-2">
+            <div class="col-3 d-inline-block p-0">
+                <label asp-for="Long" class="d-inline-block p-0 align-top"></label> & 
+                <label asp-for="Lat" class="d-inline-block p-0 align-top"></label>: 
+            </div>
+            <div class="col-8 d-inline-block p-0">
+                <input asp-for="Long" class="form-control col-4 d-inline-block m-auto" placeholder="Enter Longitude" aria-label="Enter Longitude" /><span class="align-top">&deg; N </span>
+                <span class="col-2"></span>
+                <input asp-for="Lat" class="form-control col-4 d-inline-block m-auto" placeholder="Enter Latitude" aria-label="Enter Latitude" /><span class="align-top">&deg; E </span>
+            </div>
+            <span asp-validation-for="Long" class="d-inline-block pl-3 offset-3 text-danger"></span>
+            <span asp-validation-for="Lat" class="d-inline-block pl-4 offset-1 offset-3 text-danger"></span>
+        </div>
+        <div class="row my-2 pr-5 justify-content-end">
+            <button class="btn btn-dark" type="submit">Create new Trail</button>
+        </div>
+    </form>
+</div>

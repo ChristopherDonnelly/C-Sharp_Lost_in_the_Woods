@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Lost_in_the_Woods.Models.TrailInfo>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row mt-5">
+    <div class="col-6">
+        <h1>Lost in the Woods</h1>
+    </div>
+    <div class="col-6">
+        <h5 class="h-100 pt-3 text-right">List of local hiking trails</h5>
+    </div>
+</div>
+<div class="row mt-3">
+    <table class="table table-striped table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Trail Name</th>
+                <th>Trail Length</th>
+                <th>Elevation Change</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(TrailInfo trail in @Model)
+                {
+                    <tr>
+                        <td class="w-50"><a href="Trails/@trail.Id" class="text-white"><u>@Html.DisplayFor(modelItem => trail.Name)</u></a></td>
+                        <td>@Html.DisplayFor(modelItem => trail.Length) Miles</td>
+                        <td>@Html.DisplayFor(modelItem => trail.Gain) feet</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row justify-content-end">
+    <form method="GET">
+        <button type="submit" class="btn btn-dark" asp-controller="Home" asp-action="NewTrail">Add a new Trail</button>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+﻿@model Lost_in_the_Woods.Models.TrailInfo
+@{
+    ViewData["Title"] = "Trail Info";
+}
+
+<div class="row mt-5">
+    <div class="col-6">
+        <h1>@Html.DisplayFor(modelItem => @Model.Name)</h1>
+        <h5>Description: </h5>
+        <p class="pl-4">@Html.DisplayFor(modelItem => @Model.Description)</p>
+        <h5>Trail Length: </h5>
+        <p class="pl-4">@Html.DisplayFor(modelItem => @Model.Length) Miles</p>
+        <h5>Elevation Change: </h5>
+        <p class="pl-4">@Html.DisplayFor(modelItem => @Model.Gain) feet</p>
+    </div>
+    <div class="col-6">
+        <div class="intrinsic-container intrinsic-container-4x3">
+            <iframe frameborder="0" class="border border-secondary" src="https://www.google.com/maps/embed/v1/search?q=@Model.Long,+@Model.Lat&key=AIzaSyBAs3P2N6oo8MXY1qeu_LwfJbf6bv_CBvc"></iframe>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6">
+                <p>Longitude: @Model.Long&deg;
+                    @{
+                        if(@Model.Long<0){
+                            <span>S</span>
+                        }else{
+                            <span>N</span>
+                        }
+                    }
+                </p>
+            </div>
+            <div class="col-6">
+                <p>Latitude: @Model.Lat&deg;
+                    @{
+                        if(@Model.Lat<0){
+                            <span>W</span>
+                        }else{
+                            <span>E</span>
+                        }
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
